@@ -30,7 +30,7 @@ const FindCards = () => {
     const [openedCards, setOpenedCards] = useState([])
     const [matched, setMatched] = useState([])
     const [moves, setMoves] = useState(0)
-
+    let elem = document.querySelector('.win')
 
 
     const shuffle = (array) => {
@@ -60,6 +60,11 @@ const FindCards = () => {
         setMoves(prevMove => prevMove + 1)
     }
 
+    if (matched.length == 6) {
+
+        elem.style.display = 'flex'
+    }
+
     useEffect(() => {
         if (openedCards < 2) return
         const firstMatched = arrayCards[openedCards[0]]
@@ -73,6 +78,7 @@ const FindCards = () => {
     }, [openedCards])
 
     const handleGameRestart = () => {
+        elem.style.display = 'none'
         setOpenedCards([])
         setMatched([])
         setMoves([])
@@ -101,8 +107,12 @@ const FindCards = () => {
                                 </div>
                             </div>
                         </div>
+
                     )
                 })}
+            </div>
+            <div className='win'>
+                <h1>Ты выйграл!</h1>
             </div>
             <button className='button-restart' onClick={handleGameRestart}>Начать завново</button>
             <a href='/' className='button-restart'>Меню</a>

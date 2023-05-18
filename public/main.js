@@ -1,5 +1,6 @@
 const draggableElements = document.querySelectorAll('.draggable')
 const droppableElements = document.querySelectorAll('.droppable')
+const winMessageBlock = document.querySelector('.win')
 
 
 draggableElements.forEach(elem => {
@@ -41,6 +42,11 @@ function dragLeave(event) {
 }
 
 function drop(event) {
+    let droppedElements = document.querySelectorAll('.dropped')
+    console.log(droppedElements.length)
+    if(droppedElements.length == 4){
+        winMessageBlock.style.display = 'flex'
+    }
     event.preventDefault()
     event.target.classList.remove('droppable-hover')
     const draggableElementData = event.dataTransfer.getData('text')

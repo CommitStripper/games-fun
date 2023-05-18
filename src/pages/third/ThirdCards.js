@@ -33,7 +33,10 @@ const ThirdCards = () => {
     const [openedCards, setOpenedCards] = useState([])
     const [matched, setMatched] = useState([])
     const [moves, setMoves] = useState(0)
-
+    let elem = document.querySelector('.win')
+    if (matched.length == 9) {
+        elem.style.display = 'flex'
+    }
 
 
     const shuffle = (array) => {
@@ -76,6 +79,7 @@ const ThirdCards = () => {
     }, [openedCards])
 
     const handleGameRestart = () => {
+        elem.style.display = 'none'
         setOpenedCards([])
         setMatched([])
         setMoves([])
@@ -106,6 +110,9 @@ const ThirdCards = () => {
                         </div>
                     )
                 })}
+            </div>
+            <div className='win'>
+                <h1>Ты выйграл!</h1>
             </div>
             <button className='button-restart' onClick={handleGameRestart}>Начать завново</button>
             <a href='/' className='button-restart'>Меню</a>
