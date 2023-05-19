@@ -1,5 +1,5 @@
-var rows = 5;
-var columns = 5;
+var rows = 4;
+var columns = 3;
 
 var currTile;
 var otherTile;

@@ -112,7 +112,7 @@ const ThirdCards = () => {
                 })}
             </div>
             <div className='win'>
-                <h1>Ты выйграл!</h1>
+                <h1>Так держать!</h1>
             </div>
             <button className='button-restart' onClick={handleGameRestart}>Начать завново</button>
             <a href='/' className='button-restart'>Меню</a>
